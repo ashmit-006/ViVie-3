@@ -1,0 +1,595 @@
+/* ---------- GENERAL ---------- */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f9c1f2, #d8a4ff);
+}
+
+/* ---------- INTRO SCENE ---------- */
+#intro-scene {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.text-container {
+  text-align: center;
+  position: relative;
+  top: -50px;
+  z-index: 5;
+}
+
+.text-container h1 {
+  font-size: 4rem;
+  color: white;
+  opacity: 0;
+}
+
+#click-start {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: white;
+  opacity: 1;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* ---------- PHOTO + KISS ---------- */
+.photo-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  z-index: 1;
+}
+
+.photo-container img {
+  width: 300px;
+  max-width: 80vw;
+  border-radius: 20px;
+}
+
+#kiss-emoji {
+  font-size: 4rem;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ---------- CONFETTI ---------- */
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* ---------- SLIDESHOW SCENE ---------- */
+#slideshow-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f9c1f2, #d8a4ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slideshow-container {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  height: 70%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  opacity: 0;
+}
+
+.slide img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-10%);
+  height: 100vh;
+  /* Fill screen vertically */
+  width: auto;
+  /* Keep aspect ratio */
+  object-fit: contain;
+  /* Makes sure no distortion */
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.caption {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+  opacity: 0;
+}
+
+#click-next {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: white;
+  opacity: 0.9;
+  animation: blink 1s infinite;
+  pointer-events: none;
+}
+
+/* ---------- ROOM SCENE ---------- */
+#room-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+#room-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Gift boxes as GIFs */
+.gift-box {
+  width: 120px;
+  height: 120px;
+  margin: 20px;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  object-fit: contain;
+}
+
+.gift-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Position boxes in room */
+#box1 {
+  position: absolute;
+  top: 60%;
+  left: 25%;
+}
+
+#box2 {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+}
+
+#box3 {
+  position: absolute;
+  top: 60%;
+  left: 55%;
+}
+
+#box4 {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+}
+
+/* ---------- FULLSCREEN LETTER ---------- */
+.fullscreen-letter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  padding: 40px;
+  color: white;
+  font-size: 1.5rem;
+  font-family: 'Dancing Script', cursive;
+  line-height: 1.8;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.close-letter {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.close-letter:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+/* 🌐 Base scaling for all devices */
+html {
+  font-size: clamp(14px, 1.5vw, 18px);
+}
+
+/* 🧭 Phones like Samsung S25 (portrait & narrow screens) */
+@media screen and (max-width: 480px) {
+  .text-container h1 {
+    font-size: 2.2rem;
+  }
+
+  #click-start {
+    font-size: 1rem;
+  }
+
+  .photo-container img {
+    width: 80vw;
+    max-width: 300px;
+    border-radius: 14px;
+  }
+
+  #kiss-emoji {
+    font-size: 2.5rem;
+  }
+
+  .slideshow-container {
+    width: 95%;
+    height: 65%;
+  }
+
+  .slide img {
+    height: 90vh;
+    border-radius: 12px;
+  }
+
+  .caption {
+    font-size: 1.1rem;
+    bottom: 12px;
+  }
+
+  .gift-box {
+    width: 80px;
+    height: 80px;
+  }
+
+  #box1,
+  #box2,
+  #box3,
+  #box4 {
+    top: 65%;
+  }
+
+  button {
+    font-size: 0.9rem !important;
+    padding: 8px 16px !important;
+  }
+
+  /* Letter text on small phones */
+  .fullscreen-letter p,
+  .letter-text {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    padding: 6vh 8vw !important;
+  }
+}
+
+/* 💻 Galaxy Tab S3 (768px–1024px) */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .text-container h1 {
+    font-size: 3rem;
+  }
+
+  .photo-container img {
+    width: 60vw;
+    max-width: 450px;
+  }
+
+  #kiss-emoji {
+    font-size: 3.5rem;
+  }
+
+  .slideshow-container {
+    width: 85%;
+    height: 75%;
+  }
+
+  .slide img {
+    height: 100vh;
+  }
+
+  .caption {
+    font-size: 1.3rem;
+  }
+
+  .gift-box {
+    width: 100px;
+    height: 100px;
+  }
+
+  #box1,
+  #box2,
+  #box3,
+  #box4 {
+    top: 60%;
+  }
+
+  /* Letter adjustments */
+  .fullscreen-letter p,
+  .letter-text {
+    font-size: 1.3rem !important;
+    line-height: 1.6 !important;
+    padding: 8vh 10vw !important;
+  }
+}
+
+/* 📺 Larger screens (maintain original) */
+@media screen and (min-width: 1281px) {
+  .text-container h1 {
+    font-size: 4rem;
+  }
+}
+
+/* ---------- TEXT POSITION & WIDTH TWEAKS (GLOBAL) ---------- */
+/* Move main heading slightly up */
+.text-container {
+  top: -80px;
+  /* earlier -50px */
+}
+
+.text-container h1 {
+  max-width: 90%;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* Bring caption and on-screen text slightly higher and wider */
+.caption {
+  bottom: 5vh;
+  /* closer to top from 20px */
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+}
+
+/* Letter content wider and higher */
+.fullscreen-letter p,
+.letter-text {
+  max-width: 85%;
+  margin-top: -4vh;
+}
+
+/* ---------- PHONE (Samsung S25) ---------- */
+@media screen and (max-width: 480px) {
+  .text-container {
+    top: -60px;
+  }
+
+  .text-container h1 {
+    font-size: 2.4rem;
+    max-width: 95%;
+  }
+
+  #click-start {
+    margin-top: 10px;
+  }
+
+  .caption {
+    bottom: 10vh;
+    font-size: 1rem;
+    width: 95%;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    font-size: 1.05rem !important;
+    max-width: 95%;
+    padding: 5vh 6vw !important;
+    margin-top: -6vh;
+  }
+}
+
+/* ---------- TABLET (Galaxy Tab S3) ---------- */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .text-container {
+    top: -70px;
+  }
+
+  .text-container h1 {
+    font-size: 3.2rem;
+    max-width: 90%;
+  }
+
+  .caption {
+    bottom: 8vh;
+    width: 90%;
+    font-size: 1.3rem;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    font-size: 1.4rem !important;
+    max-width: 90%;
+    margin-top: -5vh;
+  }
+}
+
+/* ---------- DESKTOP ---------- */
+@media screen and (min-width: 1281px) {
+  .text-container {
+    top: -90px;
+  }
+
+  .text-container h1 {
+    font-size: 4.2rem;
+    max-width: 80%;
+  }
+
+  .caption {
+    bottom: 10vh;
+    font-size: 1.6rem;
+    width: 85%;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    font-size: 1.7rem !important;
+    max-width: 80%;
+    margin-top: -6vh;
+  }
+}
+
+
+
+
+
+
+/* ---------- FINAL TEXT POSITION & WIDTH FIX ---------- */
+
+/* Intro text (move higher and slightly wider) */
+.text-container {
+  top: -120px !important; /* moved further up */
+}
+
+.text-container h1 {
+  max-width: 95% !important;
+  line-height: 1.15 !important;
+}
+
+/* Slideshow captions (closer to top and wider) */
+.caption {
+  bottom: auto !important;
+  top: 6vh !important; /* move to near top */
+  width: 95% !important;
+  max-width: 900px !important;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem) !important;
+  text-align: center;
+}
+
+/* Letter scene (text starts higher & spreads more across the page) */
+.fullscreen-letter p,
+.letter-text {
+  max-width: 90% !important;
+  margin-top: -10vh !important; /* move closer to top */
+  font-size: clamp(1.2rem, 2.2vw, 1.9rem) !important;
+  line-height: 1.7 !important;
+  padding: 4vh 6vw !important;
+}
+
+/* ---------- Mobile Fine-tuning ---------- */
+@media screen and (max-width: 480px) {
+  .text-container {
+    top: -100px !important;
+  }
+
+  .caption {
+    top: 8vh !important;
+    font-size: 1rem !important;
+    width: 96% !important;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    margin-top: -12vh !important;
+    max-width: 95% !important;
+    font-size: 1.05rem !important;
+    line-height: 1.6 !important;
+  }
+}
+
+/* ---------- Tablet Fine-tuning ---------- */
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .text-container {
+    top: -110px !important;
+  }
+
+  .caption {
+    top: 7vh !important;
+    font-size: 1.3rem !important;
+    width: 93% !important;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    margin-top: -9vh !important;
+    max-width: 88% !important;
+  }
+}
+
+/* ---------- Desktop Fine-tuning ---------- */
+@media screen and (min-width: 1281px) {
+  .text-container {
+    top: -130px !important;
+  }
+
+  .caption {
+    top: 8vh !important;
+    font-size: 1.6rem !important;
+    width: 90% !important;
+  }
+
+  .fullscreen-letter p,
+  .letter-text {
+    margin-top: -8vh !important;
+    max-width: 85% !important;
+    font-size: 1.8rem !important;
+  }
+}

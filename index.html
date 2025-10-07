@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Surprise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Scene 1: Intro -->
+  <section id="intro-scene">
+    <!-- Text first -->
+    <div class="text-container">
+      <h1 id="birthday-text">Happy Birthday, Babyyyy!</h1>
+      <p id="click-start">Click anywhere🎉</p>
+    </div>
+
+    <!-- Photo container -->
+    <div class="photo-container">
+      <div id="kiss-emoji">💋</div>
+    </div>
+  </section>
+
+  <!-- Scene 2: Slideshow -->
+  <section id="slideshow-scene">
+    <div class="slideshow-container">
+      <div class="slide">
+        <img src="img/photo1.jpg" alt="Photo 1">
+        <div class="caption">Beautiful smile ✨</div>
+      </div>
+      <div class="slide">
+        <img src="img/photo2.jpg" alt="Photo 2">
+        <div class="caption">Lovely eyes 💖</div>
+      </div>
+      <div class="slide">
+        <img src="img/photo3.jpg" alt="Photo 3">
+        <div class="caption">Cute laughter 😄</div>
+      </div>
+      <div class="slide">
+        <img src="img/photo4.jpg" alt="Photo 4">
+        <div class="caption">Radiant glow 🌸</div>
+      </div>
+      <div class="slide">
+        <img src="img/photo5.jpg" alt="Photo 5">
+        <div class="caption">Heart-stealer ❤️</div>
+      </div>
+    </div>
+    <p id="click-next">Click to continue 👉</p>
+  </section>
+
+  <!-- Scene 3: Room with Gift Boxes -->
+  <!-- Scene 3: Room with Gift Boxes -->
+  <section id="room-scene">
+    <img src="img/room.gif" alt="Room" id="room-bg">
+
+    <!-- Gift Boxes as GIFs -->
+    <img class="gift-box" id="box1" src="img/box.gif" alt="Box 1" data-item="flower">
+    <img class="gift-box" id="box2" src="img/box.gif" alt="Box 2" data-item="travel">
+    <img class="gift-box" id="box3" src="img/box.gif" alt="Box 3" data-item="toy">
+    <img class="gift-box" id="box4" src="img/box.gif" alt="Box 4" data-item="song">
+  </section>
+
+
+  <!-- Audio for box pop -->
+  <audio id="pop-sound" src="music/pop.mp3"></audio>
+
+  <!-- Audio for kiss sound -->
+  <audio id="kiss-sound" src="music/kiss.mp3"></audio>
+  <audio id="kiss-exit-sound" src="music/kiss-exit.mp3"></audio>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
